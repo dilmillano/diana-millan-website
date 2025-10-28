@@ -92,11 +92,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Typing effect for rotating phrases
 function initTypingPhrases() {
     const phrases = [
-        "geospatial analysis and environmental change detection",
-        "forest dynamics, carbon cycles, and biomass estimation",
-        "monitoring deforestation, land-use transitions, and territorial patterns",
-        "Integrating GIS, satellite data, and AI to understand landscape connectivity",
-        "Committed to using spatial data for conservation and sustainable decision-making"
+        "análisis geoespacial y detección de cambios ambientales",
+        "dinámica forestal, ciclos de carbono y estimación de biomasa",
+        "monitoreo de deforestación, transiciones de uso de suelo y patrones territoriales",
+        "integración de SIG, datos satelitales e IA para comprender la conectividad del paisaje",
+        "comprometida con el uso de datos espaciales para la conservación y la toma de decisiones sostenibles"
     ];
     
     const phrasesContainer = document.querySelector('.rotating-phrases');
