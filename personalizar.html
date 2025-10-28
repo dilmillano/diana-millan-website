@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalizar Página Web - Diana Millán</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #333;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 5px;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn-secondary {
+            background: #95a5a6;
+        }
+        .btn-secondary:hover {
+            background: #7f8c8d;
+        }
+        .instructions {
+            background: #e8f4f8;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Personalizar tu Página Web</h1>
+        
+        <div class="instructions">
+            <strong>Instrucciones:</strong> Completa la información a continuación para personalizar tu página web. 
+            Esta información se usará para actualizar automáticamente el contenido de tu sitio.
+        </div>
+
+        <form id="personalizationForm">
+            <div class="form-group">
+                <label for="nombre">Nombre Completo:</label>
+                <input type="text" id="nombre" name="nombre" value="Diana Millán" required>
+            </div>
+
+            <div class="form-group">
+                <label for="titulo">Título Profesional:</label>
+                <input type="text" id="titulo" name="titulo" value="Economista" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email de Contacto:</label>
+                <input type="email" id="email" name="email" placeholder="diana.millan@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label for="ubicacion">Ubicación:</label>
+                <input type="text" id="ubicacion" name="ubicacion" value="Bogotá, Colombia" required>
+            </div>
+
+            <div class="form-group">
+                <label for="afiliacion">Afiliación Actual:</label>
+                <input type="text" id="afiliacion" name="afiliacion" placeholder="Universidad o Institución" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cargo">Cargo Actual:</label>
+                <input type="text" id="cargo" name="cargo" placeholder="Profesora, Investigadora, etc." required>
+            </div>
+
+            <div class="form-group">
+                <label for="biografia">Biografía (Sobre mí):</label>
+                <textarea id="biografia" name="biografia" placeholder="Escribe una breve descripción de tu trayectoria profesional, intereses de investigación y experiencia..."></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="areas_investigacion">Áreas de Investigación (separadas por comas):</label>
+                <input type="text" id="areas_investigacion" name="areas_investigacion" placeholder="Economía Ambiental, Economía de Género, Economía de la Salud">
+            </div>
+
+            <div class="form-group">
+                <label for="cursos">Cursos que Impartes (separados por comas):</label>
+                <input type="text" id="cursos" name="cursos" placeholder="Microeconomía, Economía Ambiental, Métodos de Investigación">
+            </div>
+
+            <div class="form-group">
+                <label for="linkedin">LinkedIn (URL completa):</label>
+                <input type="url" id="linkedin" name="linkedin" placeholder="https://linkedin.com/in/tu-perfil">
+            </div>
+
+            <div class="form-group">
+                <label for="twitter">Twitter (URL completa):</label>
+                <input type="url" id="twitter" name="twitter" placeholder="https://twitter.com/tu-usuario">
+            </div>
+
+            <div class="form-group">
+                <label for="scholar">Google Scholar (URL completa):</label>
+                <input type="url" id="scholar" name="scholar" placeholder="https://scholar.google.com/citations?user=tu-id">
+            </div>
+
+            <div style="text-align: center; margin-top: 30px;">
+                <button type="button" class="btn" onclick="generarCodigo()">🚀 Generar Código Personalizado</button>
+                <button type="button" class="btn btn-secondary" onclick="cargarEjemplo()">📋 Cargar Ejemplo</button>
+            </div>
+        </form>
+
+        <div id="resultado" style="margin-top: 30px; display: none;">
+            <h3>✅ Código Generado</h3>
+            <p>Tu página web ha sido personalizada. Los archivos se han actualizado automáticamente.</p>
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 5px; margin-top: 15px;">
+                <strong>Próximos pasos:</strong>
+                <ol>
+                    <li>Sube todos los archivos a tu repositorio de GitHub</li>
+                    <li>Habilita GitHub Pages en la configuración del repositorio</li>
+                    <li>¡Tu página estará disponible en tu-usuario.github.io/nombre-repositorio!</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function cargarEjemplo() {
+            document.getElementById('nombre').value = 'Diana Millán';
+            document.getElementById('titulo').value = 'Economista';
+            document.getElementById('email').value = 'diana.millan@universidad.edu.co';
+            document.getElementById('ubicacion').value = 'Bogotá, Colombia';
+            document.getElementById('afiliacion').value = 'Universidad de los Andes';
+            document.getElementById('cargo').value = 'Profesora Asistente';
+            document.getElementById('biografia').value = 'Soy una economista apasionada por la investigación y la docencia. Mi trabajo se centra en la economía ambiental y de género, y me dedico a la investigación académica y la formación de estudiantes. Mi investigación busca entender los impactos económicos de la degradación ambiental y los desafíos que enfrentan las políticas públicas en contextos de desigualdad. Para responder estas preguntas, combino métodos econométricos con análisis espaciales y un enfoque en países de América Latina.';
+            document.getElementById('areas_investigacion').value = 'Economía Ambiental, Economía de Género, Economía de la Salud, Políticas Públicas';
+            document.getElementById('cursos').value = 'Microeconomía Avanzada, Economía Ambiental, Métodos de Investigación, Economía de Género';
+        }
+
+        function generarCodigo() {
+            const formData = new FormData(document.getElementById('personalizationForm'));
+            const data = Object.fromEntries(formData);
+            
+            // Aquí actualizarías los archivos HTML con la información proporcionada
+            console.log('Datos personalizados:', data);
+            
+            // Mostrar resultado
+            document.getElementById('resultado').style.display = 'block';
+            document.getElementById('resultado').scrollIntoView({ behavior: 'smooth' });
+            
+            // Aquí podrías implementar la lógica para actualizar automáticamente los archivos
+            alert('¡Página personalizada! Revisa la sección de resultado para los próximos pasos.');
+        }
+    </script>
+</body>
+</html>
