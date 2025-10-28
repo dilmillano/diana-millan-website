@@ -89,29 +89,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Typing effect for hero title
-function typeWriter(element, text, speed = 100) {
-    let i = 0;
-    element.innerHTML = '';
+// Rotating phrases effect
+function initRotatingPhrases() {
+    const phrases = document.querySelectorAll('.phrase');
+    let currentIndex = 0;
     
-    function type() {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(type, speed);
-        }
+    function showNextPhrase() {
+        // Hide current phrase
+        phrases[currentIndex].classList.remove('active');
+        
+        // Move to next phrase
+        currentIndex = (currentIndex + 1) % phrases.length;
+        
+        // Show next phrase
+        phrases[currentIndex].classList.add('active');
     }
     
-    type();
+    // Start the rotation
+    if (phrases.length > 0) {
+        setInterval(showNextPhrase, 3000); // Change every 3 seconds
+    }
 }
 
-// Initialize typing effect when page loads
+// Initialize rotating phrases when page loads
 window.addEventListener('load', () => {
-    const heroTitle = document.querySelector('.hero-title');
-    if (heroTitle) {
-        const originalText = heroTitle.innerHTML;
-        typeWriter(heroTitle, originalText, 50);
-    }
+    initRotatingPhrases();
 });
 
 // Add loading animation
