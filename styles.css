@@ -45,15 +45,18 @@ body {
 }
 
 .nav-logo a {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #2c3e50;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: opacity 0.3s ease;
 }
 
-.nav-logo a:hover {
-    color: #5F9B89;
+.logo-image {
+    height: 40px;
+    width: auto;
+    transition: opacity 0.3s ease;
+}
+
+.nav-logo a:hover .logo-image {
+    opacity: 0.8;
 }
 
 .nav-menu {
@@ -119,9 +122,8 @@ body {
 }
 
 .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -175,6 +177,20 @@ body {
     transform: translateY(0);
 }
 
+.typing-cursor {
+    display: inline-block;
+    width: 2px;
+    height: 1.2em;
+    background-color: #333;
+    margin-left: 2px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
+}
+
 .hero-image {
     display: flex;
     justify-content: center;
@@ -220,15 +236,34 @@ section {
 }
 
 .about-content {
-    max-width: 800px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    max-width: 1000px;
     margin: 0 auto;
 }
 
-.about-content p {
+.about-text p {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
     color: #555;
     line-height: 1.8;
+}
+
+.about-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #5F9B89;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 /* Research Section */
@@ -423,8 +458,6 @@ section {
     }
 
     .hero-content {
-        grid-template-columns: 1fr;
-        gap: 2rem;
         text-align: center;
     }
 
@@ -432,9 +465,15 @@ section {
         font-size: 2.5rem;
     }
 
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
     .profile-photo {
-        width: 250px;
-        height: 250px;
+        width: 200px;
+        height: 200px;
     }
 
     .contact-content {

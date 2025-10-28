@@ -89,31 +89,63 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Rotating phrases effect
-function initRotatingPhrases() {
-    const phrases = document.querySelectorAll('.phrase');
-    let currentIndex = 0;
+// Typing effect for rotating phrases
+function initTypingPhrases() {
+    const phrases = [
+        "geospatial analysis and environmental change detection",
+        "forest dynamics, carbon cycles, and biomass estimation",
+        "monitoring deforestation, land-use transitions, and territorial patterns",
+        "Integrating GIS, satellite data, and AI to understand landscape connectivity",
+        "Committed to using spatial data for conservation and sustainable decision-making"
+    ];
     
-    function showNextPhrase() {
-        // Hide current phrase
-        phrases[currentIndex].classList.remove('active');
+    const phrasesContainer = document.querySelector('.rotating-phrases');
+    let currentPhraseIndex = 0;
+    let currentCharIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 50;
+    let deletingSpeed = 30;
+    let pauseTime = 2000;
+    
+    function typePhrase() {
+        const currentPhrase = phrases[currentPhraseIndex];
+        const displayText = currentPhrase.substring(0, currentCharIndex);
         
-        // Move to next phrase
-        currentIndex = (currentIndex + 1) % phrases.length;
+        phrasesContainer.innerHTML = displayText + '<span class="typing-cursor"></span>';
         
-        // Show next phrase
-        phrases[currentIndex].classList.add('active');
+        if (!isDeleting) {
+            if (currentCharIndex < currentPhrase.length) {
+                currentCharIndex++;
+                setTimeout(typePhrase, typingSpeed);
+            } else {
+                // Finished typing, wait then start deleting
+                setTimeout(() => {
+                    isDeleting = true;
+                    typePhrase();
+                }, pauseTime);
+            }
+        } else {
+            if (currentCharIndex > 0) {
+                currentCharIndex--;
+                setTimeout(typePhrase, deletingSpeed);
+            } else {
+                // Finished deleting, move to next phrase
+                isDeleting = false;
+                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+                setTimeout(typePhrase, 500);
+            }
+        }
     }
     
-    // Start the rotation
-    if (phrases.length > 0) {
-        setInterval(showNextPhrase, 3000); // Change every 3 seconds
+    // Start the typing effect
+    if (phrasesContainer) {
+        typePhrase();
     }
 }
 
-// Initialize rotating phrases when page loads
+// Initialize typing phrases when page loads
 window.addEventListener('load', () => {
-    initRotatingPhrases();
+    initTypingPhrases();
 });
 
 // Add loading animation
