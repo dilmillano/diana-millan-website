@@ -327,8 +327,15 @@ section {
 .publication-authors {
     color: #666;
     font-size: 0.95rem;
-    margin-bottom: 0.25rem;
-    font-style: italic;
+}
+
+.ponencia-event {
+    color: #5F9B89;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
 }
 
 .publication-journal {
