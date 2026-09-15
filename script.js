@@ -79,7 +79,7 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observe elements for animation
 document.addEventListener('DOMContentLoaded', () => {
-    const animatedElements = document.querySelectorAll('.research-card, .teaching-item, .publication-item, .about-text, .about-image');
+    const animatedElements = document.querySelectorAll('.line-card, .pubs-col, .publication-item, .about-text, .about-image');
     
     animatedElements.forEach(el => {
         el.style.opacity = '0';
@@ -87,63 +87,6 @@ document.addEventListener('DOMContentLoaded', () => {
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
     });
-});
-
-// Typing effect for rotating phrases
-function initTypingPhrases() {
-    const phrases = [
-        "La sinergia entre la GeoIA y los datos satelitales para el monitoreo",
-        "El monitoreo de la deforestación y los cambios del uso del suelo",
-        "Transformaciones del paisaje impulsadas por economías ilícitas"
-    ];
-    
-    const phrasesContainer = document.querySelector('.rotating-phrases');
-    let currentPhraseIndex = 0;
-    let currentCharIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 50;
-    let deletingSpeed = 30;
-    let pauseTime = 2000;
-    
-    function typePhrase() {
-        const currentPhrase = phrases[currentPhraseIndex];
-        const displayText = currentPhrase.substring(0, currentCharIndex);
-        
-        phrasesContainer.innerHTML = displayText + '<span class="typing-cursor"></span>';
-        
-        if (!isDeleting) {
-            if (currentCharIndex < currentPhrase.length) {
-                currentCharIndex++;
-                setTimeout(typePhrase, typingSpeed);
-            } else {
-                // Finished typing, wait then start deleting
-                setTimeout(() => {
-                    isDeleting = true;
-                    typePhrase();
-                }, pauseTime);
-            }
-        } else {
-            if (currentCharIndex > 0) {
-                currentCharIndex--;
-                setTimeout(typePhrase, deletingSpeed);
-            } else {
-                // Finished deleting, move to next phrase
-                isDeleting = false;
-                currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
-                setTimeout(typePhrase, 500);
-            }
-        }
-    }
-    
-    // Start the typing effect
-    if (phrasesContainer) {
-        typePhrase();
-    }
-}
-
-// Initialize typing phrases when page loads
-window.addEventListener('load', () => {
-    initTypingPhrases();
 });
 
 // Add loading animation
@@ -179,7 +122,7 @@ function createScrollToTopButton() {
         width: 50px;
         height: 50px;
         border-radius: 50%;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #0B3D5C 0%, #4FB286 100%);
         color: white;
         border: none;
         cursor: pointer;
