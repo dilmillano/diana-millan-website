@@ -36,7 +36,7 @@ h1, h2, h3, h4, h5, h6, .nav-link, .btn, .m-btn {
     font-family: 'Space Grotesk', sans-serif;
 }
 
-.mono, .publication-year, .ponencia-event, .hero-eyebrow, .pubs-year, .line-count {
+.mono, .publication-year, .ponencia-event, .hero-eyebrow, .pubs-year {
     font-family: 'JetBrains Mono', monospace;
 }
 
@@ -213,35 +213,10 @@ h1, h2, h3, h4, h5, h6, .nav-link, .btn, .m-btn {
 
 .hero-role {
     font-family: 'Space Grotesk', sans-serif;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     color: var(--ink);
-    margin-bottom: 0.9rem;
-}
-
-.hero-desc {
-    font-size: 1.1rem;
-    color: var(--ink-soft);
-    margin-bottom: 1.25rem;
-    max-width: 480px;
-}
-
-.hero-focus {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.5rem;
     margin-bottom: 2rem;
-}
-
-.hero-focus span {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
-    color: var(--ink-soft);
-    border: 1px solid var(--line);
-    border-radius: 20px;
-    padding: 5px 12px;
 }
 
 .hero-ctas {
@@ -415,14 +390,6 @@ section + section {
     font-family: 'Source Serif 4', serif;
     font-size: 0.9rem;
     color: var(--ink-soft);
-    margin-bottom: 1rem;
-}
-
-.line-count {
-    font-size: 0.72rem;
-    color: var(--ink-soft);
-    text-transform: uppercase;
-    letter-spacing: 0.03em;
 }
 
 /* ===== About Section ===== */
@@ -838,11 +805,6 @@ section + section {
     .hero-text {
         max-width: 100%;
         margin: 0 auto;
-    }
-
-    .hero-desc {
-        margin-left: auto;
-        margin-right: auto;
     }
 
     .hero-ctas {
