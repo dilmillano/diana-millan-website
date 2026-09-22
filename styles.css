@@ -287,16 +287,37 @@ h1, h2, h3, h4, h5, h6, .nav-link, .btn, .m-btn {
 
 .hero-visual {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
+    gap: 0.6rem;
 }
 
-.hero-visual svg {
+.hero-map {
     width: 100%;
     max-width: 420px;
-    height: auto;
+    height: 420px;
     border-radius: 10px;
     box-shadow: 0 20px 45px -20px rgba(11, 61, 92, 0.35);
+    border: 1px solid var(--line);
+}
+
+.hero-map-note {
+    font-size: 0.72rem;
+    color: var(--ink-soft);
+    text-align: center;
+    max-width: 420px;
+}
+
+.leaflet-popup-content {
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.88rem;
+    color: var(--ink);
+    margin: 10px 12px;
+}
+
+.leaflet-popup-content strong {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.9rem;
 }
 
 /* ===== Section Styles ===== */

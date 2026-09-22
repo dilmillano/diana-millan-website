@@ -155,3 +155,87 @@ function createScrollToTopButton() {
 
 // Initialize scroll to top button
 createScrollToTopButton();
+
+// Hero map: Colombia, relieve real, sin API key
+function initHeroMap() {
+    const mapEl = document.getElementById('hero-map');
+    if (!mapEl || typeof L === 'undefined') return;
+
+    const colombiaBounds = L.latLngBounds([-4.5, -80], [13, -65]);
+
+    const map = L.map('hero-map', {
+        scrollWheelZoom: false,
+        zoomControl: false,
+        maxBounds: colombiaBounds.pad(0.3),
+        minZoom: 5,
+        maxZoom: 9
+    }).fitBounds(colombiaBounds, { padding: [0, 0] });
+
+    L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+    L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+        attribution: 'Map data: &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, SRTM | Map style: &copy; <a href="https://opentopomap.org">OpenTopoMap</a> (CC-BY-SA)',
+        maxZoom: 9,
+        subdomains: 'abc'
+    }).addTo(map);
+
+    const layerColors = {
+        geoia: '#2F8F6E',
+        illicit: '#B8763A',
+        restore: '#6E7F4F',
+        governance: '#0B3D5C'
+    };
+
+    const markersData = [
+        {
+            line: 'geoia',
+            lat: 1.35, lng: -72.95,
+            title: 'GeoIA & monitoreo satelital',
+            desc: 'Segmentación de bosque y métricas espaciales para monitoreo continuo en la Amazonía colombiana.'
+        },
+        {
+            line: 'geoia',
+            lat: 10.391, lng: -75.479,
+            title: 'Cartagena — LIDAR urbano',
+            desc: 'Modelación de nube de puntos LIDAR para el censo del arbolado del perímetro urbano.'
+        },
+        {
+            line: 'illicit',
+            lat: 0.95, lng: -73.35,
+            title: 'Economías ilícitas y territorio',
+            desc: 'Transiciones entre coca, minería de oro y ganadería en el posacuerdo amazónico.'
+        },
+        {
+            line: 'governance',
+            lat: 1.65, lng: -71.75,
+            title: 'Transporte intermodal amazónico',
+            desc: 'Plan Amazónico de Transporte Intermodal Sostenible (PATIS).'
+        },
+        {
+            line: 'restore',
+            lat: 4.65, lng: -74.04,
+            title: 'Cerros Orientales de Bogotá',
+            desc: 'Restauración ecológica, revegetalización y observaciones LIDAR de captura de carbono.'
+        },
+        {
+            line: 'governance',
+            lat: 4.6015, lng: -74.0661,
+            title: 'CESED — Universidad de los Andes',
+            desc: 'Base institucional de investigación en justicia ambiental y política pública.'
+        }
+    ];
+
+    markersData.forEach(m => {
+        L.circleMarker([m.lat, m.lng], {
+            radius: 7,
+            color: '#fff',
+            weight: 2,
+            fillColor: layerColors[m.line],
+            fillOpacity: 0.92
+        })
+            .bindPopup('<strong>' + m.title + '</strong><p>' + m.desc + '</p>')
+            .addTo(map);
+    });
+}
+
+window.addEventListener('load', initHeroMap);

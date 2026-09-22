@@ -18,6 +18,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
 </head>
 <body>
     <!-- Navigation -->
@@ -66,26 +67,8 @@
                     </div>
                 </div>
                 <div class="hero-visual">
-                    <svg viewBox="0 0 280 220" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Diagrama de capas de investigación superpuestas">
-                        <rect x="26" y="10" width="180" height="118" rx="14" fill="#0B3D5C" opacity="0.94" stroke="#fff" stroke-width="3"/>
-                        <text x="40" y="30" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="500" letter-spacing="0.5">GOBERNANZA</text>
-
-                        <rect x="44" y="32" width="180" height="118" rx="14" fill="#6E7F4F" opacity="0.95" stroke="#fff" stroke-width="3"/>
-                        <text x="58" y="52" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="500" letter-spacing="0.5">RESTAURACIÓN</text>
-
-                        <rect x="62" y="54" width="180" height="118" rx="14" fill="#B8763A" opacity="0.96" stroke="#fff" stroke-width="3"/>
-                        <text x="76" y="74" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="500" letter-spacing="0.5">ECON. ILÍCITAS</text>
-
-                        <rect x="80" y="76" width="180" height="118" rx="14" fill="#2F8F6E" stroke="#fff" stroke-width="3"/>
-                        <text x="94" y="96" fill="#fff" font-family="JetBrains Mono, monospace" font-size="8.5" font-weight="500" letter-spacing="0.5">GEOIA &amp; MONITOREO</text>
-                        <g stroke="#fff" stroke-width="1.2" stroke-dasharray="3 3" fill="none" opacity="0.8">
-                            <path d="M108 150 L152 164 L192 144 L228 168"/>
-                        </g>
-                        <circle cx="108" cy="150" r="3.5" fill="#fff"/>
-                        <circle cx="152" cy="164" r="3.5" fill="#fff"/>
-                        <circle cx="192" cy="144" r="3.5" fill="#fff"/>
-                        <circle cx="228" cy="168" r="3.5" fill="#fff"/>
-                    </svg>
+                    <div id="hero-map" class="hero-map" role="img" aria-label="Mapa interactivo de Colombia con regiones de investigación"></div>
+                    <p class="hero-map-note">Regiones generales de trabajo, no ubicaciones exactas de campo.</p>
                 </div>
             </div>
         </div>
@@ -348,6 +331,7 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
     <script src="script.js"></script>
 </body>
 </html>
